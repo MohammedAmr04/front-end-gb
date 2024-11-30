@@ -1,0 +1,36 @@
+.fontPrata {
+  font-family: "Prata", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.landingPage {
+  justify-content: center;
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  margin: 50px;
+  padding: 20px 30px;
+}
+.imgContainer {
+  justify-content: center;
+}
+.paragraph {
+  font-family: "Prata", serif;
+  margin: 15px 0;
+  opacity: 0.9;
+  text-wrap: balance;
+  font-size: 20px;
+}
+.buttonRead {
+  width: fit-content;
+  padding: 15px 25px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.buttonRead:hover {
+  background-color: #555;
+}
