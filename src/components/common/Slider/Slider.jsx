@@ -1,49 +1,29 @@
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import styles from'./styles.module.css';
-import CardBook from './../Card/CardBook';
+import CardBook from "./../Card/CardBook";
+import { Container } from "react-bootstrap";
+import HeaderSection from "../HeaderSection/HeaderSection";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
-const { borderBottomFit } = styles;
-export default function Slider(props) {
-    const books = Array.from({ length: 20 }, (_, index) => ({
-        id: index + 1,
-    }));
-    return (
-        <div>
-            <h2 className={borderBottomFit}>{props.title}</h2>
-            <Swiper
-                // Configure Swiper modules
-                modules={[Navigation, Pagination]}
-                navigation
-                pagination={{ clickable: true }}
-                spaceBetween={30}
-                breakpoints={{
-                    // Screen width >= 320px: Show 1 book
-                    320: {
-                        slidesPerView: 1,
-                    },
-                    // Screen width >= 768px: Show 3 books
-                    768: {
-                        slidesPerView: 3,
-                    },
-                    // Screen width >= 1200px: Show 6 books
-                    1200: {
-                        slidesPerView: 6,
-                    }
-                }}
-                className="swiper-container"
-            >
-                {/* SwiperSlide Components */}
-                {books.map((book) => (
-                    <SwiperSlide className='d-flex justify-content-center align-items-center' key={book.id}>
-                        <CardBook />
-                    </SwiperSlide>
-                ))}
-            </Swiper>
-        </div>
+export default function Slider() {
+  const books = Array.from({ length: 4 }, (_, index) => ({
+    id: index + 1,
+  }));
 
-    );
+  return (
+    <Container className=" position-relative">
+      <HeaderSection />
+      {/* Rendering CardBook components */}
+      <div className="d-flex justify-content-center align-items-center flex-wrap">
+        {books.map((book) => (
+          <div key={book.id} className="mx-2">
+            <CardBook />
+          </div>
+        ))}
+      </div>
+      <hr />
+      <p role="button" className=" text-end">
+        Veiw all books <FontAwesomeIcon className=" px-1" icon={faArrowRight} />
+      </p>
+    </Container>
+  );
 }

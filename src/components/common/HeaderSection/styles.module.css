@@ -1,0 +1,17 @@
+.headerMain {
+  width: fit-content;
+  padding: 15px 0;
+  position: relative;
+
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.headerMain::after {
+  content: " ";
+  position: absolute;
+  top: 100%;
+  left: 5%;
+  width: 90%;
+  height: 2px;
+  background-color: #777;
+}
